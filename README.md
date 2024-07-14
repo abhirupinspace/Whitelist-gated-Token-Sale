@@ -19,13 +19,13 @@ cd <repository_directory>
 ```bash
 cargo install --git https://github.com/project-serum/anchor --tag v0.17.0 anchor-cli --locked
 ```
-#Deployment
+# Deployment
 Deploy the smart contract to Solana mainnet or testnet:
 ```bash
 anchor build
 anchor deploy
 ```
-##Interacting with the Contract
+## Interacting with the Contract
 Add addresses to the whitelist
 ```bash
 anchor run add-to-whitelist --keypair <path_to_your_keypair>
@@ -34,6 +34,6 @@ Purchase tokens from the sale:
 ```bash
 anchor run purchase --keypair <path_to_your_keypair> --amount <number_of_tokens>
 ```
-##Troubleshooting
+## Troubleshooting
 Ensure all dependencies are installed correctly.
 Check Solana local cluster status if tests or deployment fail.
