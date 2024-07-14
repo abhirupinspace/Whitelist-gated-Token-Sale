@@ -6,7 +6,7 @@ This repository contains a smart contract implemented using Anchor to facilitate
 ## Requirements
 - Rust
 - Anchor CLI
-- Solana Tool Suite (Solana CLI tools)
+- Solana CLI tools
 
 ## Installation
 
@@ -16,4 +16,24 @@ git clone <repository_url>
 cd <repository_directory>
 ```
 # Install Anchor CLI
+```bash
 cargo install --git https://github.com/project-serum/anchor --tag v0.17.0 anchor-cli --locked
+```
+#Deployment
+Deploy the smart contract to Solana mainnet or testnet:
+```bash
+anchor build
+anchor deploy
+```
+##Interacting with the Contract
+Add addresses to the whitelist
+```bash
+anchor run add-to-whitelist --keypair <path_to_your_keypair>
+```
+Purchase tokens from the sale:
+```bash
+anchor run purchase --keypair <path_to_your_keypair> --amount <number_of_tokens>
+```
+##Troubleshooting
+Ensure all dependencies are installed correctly.
+Check Solana local cluster status if tests or deployment fail.
