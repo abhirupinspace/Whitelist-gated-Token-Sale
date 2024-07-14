@@ -12,8 +12,8 @@ This repository contains a smart contract implemented using Anchor to facilitate
 
 ### Clone the repository
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/abhirupinspace/Whitelist-gated-Token-Sale
+cd <directory>
 ```
 # Install Anchor CLI
 ```bash
