@@ -8,7 +8,7 @@ skip-lint = false
 whitelist_sale = "5j4KSp5cfLnt2puNbQJtepfe3Cjpcyi6Gd8cC5rs9ThL"
 
 [registry]
-url = "https://api.apr.dev"
+url = "https://api.devnet.solana.dev"
 
 [provider]
 cluster = "http://127.0.0.1:8899"

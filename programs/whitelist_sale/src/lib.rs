@@ -1,8 +1,9 @@
+
 use anchor_lang::prelude::*;
 declare_id!("5j4KSp5cfLnt2puNbQJtepfe3Cjpcyi6Gd8cC5rs9ThL");
 
 #[program]
-mod whitelist_sale {
+pub mod whitelist_sale {
     use anchor_lang::solana_program::entrypoint::ProgramResult;
 
     use super::*;
@@ -23,13 +24,10 @@ mod whitelist_sale {
 
     pub fn purchase_tokens(ctx: Context<PurchaseTokens>, address: String, amount: u64) -> ProgramResult {
         let mut sale = ctx.accounts.sale.clone();
-    
-        // Check if the address is whitelisted
         if !sale.whitelist.contains(&address) {
             return Err(ErrorCode::NotWhitelisted.into());
         }
     
-        // Check and update the purchases
         let mut found = false;
         for (addr, count) in sale.purchases.iter_mut() {
             if *addr == address {
@@ -38,15 +36,13 @@ mod whitelist_sale {
                     return Err(ErrorCode::PurchaseLimitExceeded.into());
                 }
                 *count += amount;
-                break; // Exit the loop once updated
+                break;
             }
         }
     
         if !found {
             return Err(ErrorCode::NotWhitelisted.into());
         }
-    
-        // Update the original account with the modified `sale`
         ctx.accounts.sale = sale;
     
         Ok(())
@@ -85,7 +81,7 @@ pub struct Sale {
     pub purchases: Vec<(String, u64)>,
 }
 
-#[error]
+#[anchor_lang::error]
 pub enum ErrorCode {
     NotWhitelisted,
     PurchaseLimitExceeded,
